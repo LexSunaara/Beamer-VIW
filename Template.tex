@@ -16,8 +16,6 @@
 \definecolor{thickorange}{rgb}{1.,0.54,0.}
 \definecolor{thickgreen}{rgb}{0.6,1.,0.}
 \definecolor{thickblue}{rgb}{0.6,0.2,4}
-\newcommand{\hllight}[1]{\sethlcolor{lightorange}\hl{#1}}
-\newcommand{\hlthick}[1]{\sethlcolor{thickorange}\hl{#1}}
 \newcommand{\NodeFill}[3]{\tikz[baseline]{\node[fill=#1!20,anchor=base](#2){#3};}}
 
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
@@ -233,6 +231,47 @@
   \end{itemize}
 \end{frame}
 
+\section{Streaming}
+
+\begin{frame}[fragile]{Wave\--mean flow decomposition}
+  \tikzstyle{na} = [baseline=-.5ex]
+  \begin{itemize}
+    \item The averagin operator is defined by $\overline{u}=\frac{1}{\left(2\pi\right)^{2}}\intop_{0}^{2\pi}\intop_{0}^{2\pi}u\,\mathrm{d}x\mathrm{d}t$.
+    \item The wave\--mean decomposition is defined by $\left(u,w,b,P\right)=\left(\overline{u},\overline{w},\overline{b},\overline{P}\right)+\left(u',w',b',P'\right)$
+    \item Taking the mean part of the equations of motion leads to :\begin{equation*}\partial_{t}\overline{u}-\frac{1}{\mathrm{Re}}\Delta\overline{u} =- \partial_{z}\overline{u'w'}\end{equation*} and $\overline{w},\overline{b}=0$.
+    \item Streaming is induced by the waves from the Reynold stress $\partial_{z}\overline{u'w'}$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Waves equations}
+  \tikzstyle{na} = [baseline=-.5ex]
+  \begin{equation*}
+    \!\!\!\!\!\!\!\!\!\!\!\!\!\!
+    \begin{cases}
+      \partial_{t}u'+\overline{u}\partial{x}u'+w'\partial_{z}\overline{u}+\NodeFill{red}{}{$u'\partial_{x}u'+w'\partial_{z}u'-\partial_{z}\overline{u'w'} $}& = -\partial_{x}P'+\frac{1}{\mathrm{Re}}\Delta u'\\
+      \partial_{t}w'+\overline{u}\partial{x}w'+\NodeFill{red}{}{$u'\partial_{x}w'+w'\partial_{z}w'-\partial_{z}\overline{w'^{2}}$}&=-\partial_{z}P'+\frac{1}{\mathrm{Fr}^{2}}b'+\frac{1}{\mathrm{Re}}\Delta w'\\
+      \partial_{t}b'+\overline{u}\partial_{x}b'+\NodeFill{red}{}{$u'\partial_{x}b'+w'\partial_{z}b'$}+w'&=0\\
+      \partial_{x}u'+\partial_{z}w'&=0
+    \end{cases}
+  \end{equation*}\\
+  \NodeFill{red}{}{Non\--linear terms} at the origin of PSI.
+\end{frame}
+
+
+\section{Waves in shear\--flows : WKB solutions}
+
+\begin{frame}[fragile]{Linearization about a sheared base state}
+  \tikzstyle{na} = [baseline=-.5ex]
+  Let us linearize the equations of motion about $\left(u,w,b,P\right)=\left(U\left(z\right),0,0,0\right)$ :
+  \begin{equation*}
+    \begin{cases}
+    \partial_{t}u+U\partial_{x}u+w\partial_{z}U +\partial_{x}P-\frac{1}{\mathrm{Re}}\Delta u& = 0\\ 
+    \partial_{t}w +\partial_{z}P-\frac{1}{\mathrm{Fr}^{2}}b-\frac{1}{\mathrm{Re}}\Delta\mathbf{w} & = 0 \\ 
+    \partial_{t}b+w& =0\\ 
+    \boldsymbol{\nabla}\cdot\mathbf{u}& =0
+    \end{cases}
+  \end{equation*}
+\end{frame}
 
 \begin{frame}{Metropolis titleformats}
 	\themename supports 4 different titleformats:
