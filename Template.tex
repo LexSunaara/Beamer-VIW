@@ -53,6 +53,7 @@
   \setbeamertemplate{section in toc}[sections numbered]
   \tableofcontents[hideallsubsections]
 \end{frame}
+
 \section{The 2D Boussinesq model}
 
 \begin{frame}[fragile]{2D Boussinesq model : Equations}
@@ -133,7 +134,7 @@
 \begin{frame}[fragile]{2D Boussinesq model : Adimensionalization}
   \tikzstyle{na} = [baseline=-.5ex]
   \begin{itemize}
-    \item $\left(\tilde{x},\tilde{z}\right)=K\left(x,z\right)$ where $K$ is a typical horizontal wave number (e.g. the wave number of the generator)
+    \item $\left(\tilde{x},\tilde{z}\right)=K\left(x,z\right)$ where $K$ is a typical wave number (e.g. the wave number of the generator)
     \item $\tilde{t}=\Omega t$ where $\Omega$ is a typical frequency (e.g. the frequency of the generator)
     \item $\tilde{\mathbf{u}}=\frac{K}{\Omega}\mathbf{u}$
     \item $\tilde{b}=\frac{K}{N^{2}}b$
@@ -197,7 +198,7 @@
   We must have $\left\lvert\omega\right\rvert<\frac{1}{\mathrm{Fr}}$ for propagating waves.
 \end{frame}
 
-\begin{frame}[fragile]{Back to the viscous case}
+\begin{frame}[fragile]{Back to the viscous case : horizontal generator}
   \tikzstyle{na} = [baseline=-.5ex]
   Let us consider again the viscous case. We consider the case where $\omega=1$ and $k=1$. (generator set\--up horizontally)
   \begin{equation*}
@@ -225,9 +226,39 @@
   Few remarks :
   \begin{itemize}
     \item $m_{w}$ : Propagating branche
-    \item $L_{\mathrm{Re}}=2\mathrm{Fr^{4}}\mathrm{Re}m_{0}$ : Dumping scale for the wave beam
+    \item $L_{\mathrm{Re}}=2\mathrm{Fr^{4}}\mathrm{Re}m_{0}$ : penetration length for the wave beam
     \item $m_{bl}$ : Boundary layer branche
     \item $\delta_{\mathrm{Re}}=\sqrt{2/\mathrm{Re}}$ : Boundary layer length
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Back to the viscous case : vertical generator}
+  \tikzstyle{na} = [baseline=-.5ex]
+  We consider here the case where $\omega=1$ and $m=1$. (generator set\--up vertically)
+  \begin{equation*}
+    \mathrm{Fr^{2}}\left(1+k^{2}\right)\left(1-i\frac{1+k^{2}}{\mathrm{Re}}\right)-k^{2}=0
+  \end{equation*}
+  Two branches :
+  \begin{equation*}
+    k^{2}=\frac{i\mathrm{Re}}{2k_{0}^{2}}\left(1+\frac{2ik_{0}^{2}}{\mathrm{Re}}-\sqrt{1+4i\frac{\left(1+k_{0}^{2}\right)k_{0}^{2}}{\mathrm{Re}}} \right)
+  \end{equation*}
+  where $k_{0}=\frac{\mathrm{Fr}}{\sqrt{1-\mathrm{Fr}^{2}}}$ is the inviscid value for $k$.
+\end{frame}
+
+\begin{frame}[fragile]{Large Reynold number limit}
+  \tikzstyle{na} = [baseline=-.5ex]
+  We now consider large values of the Reynold number. The solution then writes :
+  \begin{align*}
+    k_{w}&=\pm\left(k_{0}-\frac{ik_{0}\left(1+k_{0}^{2}\right)^{2}}{2\mathrm{Re}}\right)\\
+    m_{bl}&=\pm \left(1+i\right)\sqrt{\frac{\mathrm{Re}}{2k_{0}^{2}}}
+  \end{align*}
+  where $k_{0}=\frac{\mathrm{Fr}}{\sqrt{1-\mathrm{Fr}^{2}}}$ is the inviscid value for $k$.\\
+  Few remarks :
+  \begin{itemize}
+    \item $k_{w}$ : Propagating branche
+    \item $L_{\mathrm{Re}}=\frac{2\mathrm{Re}}{k_{0}\left( 1+k_{0}^{2}\right)^{2}}$ : Penetration length for the wave beam
+    \item $k_{bl}$ : Boundary layer branche
+    \item $\delta_{\mathrm{Re}}=\sqrt{2k^{2}_{0}/\mathrm{Re}}$ : Boundary layer length
   \end{itemize}
 \end{frame}
 
@@ -236,7 +267,7 @@
 \begin{frame}[fragile]{Wave\--mean flow decomposition}
   \tikzstyle{na} = [baseline=-.5ex]
   \begin{itemize}
-    \item The averagin operator is defined by $\overline{u}=\frac{1}{\left(2\pi\right)^{2}}\intop_{0}^{2\pi}\intop_{0}^{2\pi}u\,\mathrm{d}x\mathrm{d}t$.
+    \item The averaging operator is defined by $\overline{u}=\frac{1}{\left(2\pi\right)^{2}}\intop_{0}^{2\pi}\intop_{0}^{2\pi}u\,\mathrm{d}x\mathrm{d}t$.
     \item The wave\--mean decomposition is defined by $\left(u,w,b,P\right)=\left(\overline{u},\overline{w},\overline{b},\overline{P}\right)+\left(u',w',b',P'\right)$
     \item Taking the mean part of the equations of motion leads to :\begin{equation*}\partial_{t}\overline{u}-\frac{1}{\mathrm{Re}}\Delta\overline{u} =- \partial_{z}\overline{u'w'}\end{equation*} and $\overline{w},\overline{b}=0$.
     \item Streaming is induced by the waves from the Reynold stress $\partial_{z}\overline{u'w'}$
@@ -254,34 +285,169 @@
       \partial_{x}u'+\partial_{z}w'&=0
     \end{cases}
   \end{equation*}\\
-  \NodeFill{red}{}{Non\--linear terms} at the origin of PSI.
+  \NodeFill{red}{}{Non\--linear terms} responsible of the PSI.
 \end{frame}
-
 
 \section{Waves in shear\--flows : WKB solutions}
 
-\begin{frame}[fragile]{Linearization about a sheared base state}
+\begin{frame}[fragile]{WKB ansatz and linearization}
   \tikzstyle{na} = [baseline=-.5ex]
-  Let us linearize the equations of motion about $\left(u,w,b,P\right)=\left(U\left(z\right),0,0,0\right)$ :
+  We introduce a small dimensionles parameter $a\ll1$ and assume that the mean\--flow writes $U=U\left(Z,T\right)$ where $\left(Z,T\right)=a\left(z,t\right)$.\\
+  WKB ansatz :
   \begin{equation*}
-    \begin{cases}
-    \partial_{t}u+U\partial_{x}u+w\partial_{z}U +\partial_{x}P-\frac{1}{\mathrm{Re}}\Delta u& = 0\\ 
-    \partial_{t}w +\partial_{z}P-\frac{1}{\mathrm{Fr}^{2}}b-\frac{1}{\mathrm{Re}}\Delta\mathbf{w} & = 0 \\ 
-    \partial_{t}b+w& =0\\ 
-    \boldsymbol{\nabla}\cdot\mathbf{u}& =0
-    \end{cases}
+    \begin{bmatrix}u\\w\\b\\P\end{bmatrix}=\sum_{j=0}^{\infty}a^{j+1}\begin{bmatrix}u_{j}\left(Z,T\right)\\w_{j}\left(Z,T\right)\\b_{j}\left(Z,T\right)\\P_{j}\left(Z,T\right)\end{bmatrix}\exp\left(i\frac{\Phi\left(Z,T\right)}{a}-ix \right)
+  \end{equation*}
+  Injecting this ansatz into the wave equation and collecting the leading order terms in $a$ leads to :
+  \begin{equation*}\!\!\!\!\!
+  	\mathbf{M}\begin{bmatrix}u_{0}\\w_{0}\\b_{0}\\P_{0}\end{bmatrix}+a\left(M\begin{bmatrix}u_{1}\\w_{1}\\b_{1}\\P_{1}\end{bmatrix}+
+  	\begin{bmatrix}
+  	\partial_{T}u_{0}+w_{0}\partial_{Z}U+\frac{i}{\mathrm{Re}}\left(u_{0}\partial_{Z}m+2m\partial_{Z}u_{0} \right)\\
+  	\partial_{T}w_{0}+\partial_{Z}P_{0}+\frac{i}{\mathrm{Re}}\left(w_{0}\partial_{Z}m+2m\partial_{Z}w_{0} \right)\\
+  	\partial_{T}b_{0}\\
+  	\partial_{Z}w_{0}\end{bmatrix} \right) =0
   \end{equation*}
 \end{frame}
 
-\begin{frame}{Metropolis titleformats}
-	\themename supports 4 different titleformats:
-	\begin{itemize}
-		\item Regular
-		\item \textsc{Smallcaps}
-		\item \textsc{allsmallcaps}
-		\item ALLCAPS
-	\end{itemize}
-	They can either be set at once for every title type or individually.
+\begin{frame}[fragile]{WKB ansatz and linearization}
+  \tikzstyle{na} = [baseline=-.5ex]
+  \begin{equation*}\!\!\!\!\!\!\!\!\!\!
+  	\mathbf{M}
+  	\begin{bmatrix}
+  		u_{0}\\
+  		w_{0}\\
+  		b_{0}\\
+  		P_{0}
+  	\end{bmatrix}+a\left(M
+  	\begin{bmatrix}
+  		u_{1}\\
+  		w_{1}\\
+  		b_{1}\\
+  		P_{1}
+  	\end{bmatrix}+
+  	\begin{bmatrix}
+  		\partial_{T}u_{0}+w_{0}\partial_{Z}U+\frac{i}{\mathrm{Re}}\left(u_{0}\partial_{Z}m+2m\partial_{Z}u_{0} \right)\\
+  		\partial_{T}w_{0}+\partial_{Z}P_{0}+\frac{i}{\mathrm{Re}}\left(w_{0}\partial_{Z}m+2m\partial_{Z}w_{0} \right)\\
+  		\partial_{T}b_{0}\\
+  		\partial_{Z}w_{0}
+  	\end{bmatrix}
+  	 \right) =0
+  \end{equation*}
+  With : 
+  \begin{align*}
+  	\mathbf{M} &=
+  	\begin{bmatrix}
+  		i\left(\omega-U\right)+\frac{1+m^{2}}{\mathrm{Re}} 	&  0  &  0 & -i  \\
+  		0	& i\left(\omega-U\right)+\frac{1+m^{2}}{\mathrm{Re}}  & -\frac{1}{\mathrm{Fr}^{2}} & -im\\
+  		0   &  1  &  i\left(\omega-U\right) & 0\\
+  		-i  &  -im  &  0  &  0
+  	\end{bmatrix}\\
+  	\omega & = \partial_{T}\Phi \\
+  	m &= -\partial_{Z}\Phi
+  \end{align*}
+\end{frame}
+
+\begin{frame}[fragile]{Order zero}
+  \tikzstyle{na} = [baseline=-.5ex]
+  \begin{equation*}\!\!\!\!\!
+  	\mathbf{M}
+  	\begin{bmatrix}
+  		u_{0}\\
+  		w_{0}\\
+  		b_{0}\\
+  		P_{0}
+  	\end{bmatrix}
+  	=0 \implies 
+  	\begin{cases}
+  		\det{\mathbf{M}}&=0\\
+  		\begin{bmatrix}
+  			u_{0}\\
+  			w_{0}\\
+  			b_{0}\\
+  			P_{0}
+  		\end{bmatrix}&
+  		=\phi_{0}\boldsymbol{\mathcal{P}}\\
+  		\boldsymbol{\mathcal{P}}&=
+  		\begin{bmatrix}
+  			U-\omega\\
+  			\frac{\omega-U}{m}\\
+  			\frac{i}{m}\\
+  			-\left(\omega-U\right)^{2}\left(1-i\frac{1+m^{2}}{\mathrm{Re}\left(\omega-U\right)}\right)
+  		\end{bmatrix}
+  	\end{cases}
+  \end{equation*}
+\end{frame}
+
+\begin{frame}[fragile]{Order one}
+  \tikzstyle{na} = [baseline=-.5ex]
+  \begin{align*}\!\!\!\!\!\!\!\!\!\!
+  	\begin{bmatrix}
+  		U-\omega\\
+  		\frac{\omega-U}{m}\\
+  		-\frac{i}{m\mathrm{Fr}^{2}}\\
+  		-\left(\omega-U\right)^{2}\left(1-i\frac{1+m^{2}}{\mathrm{Re}\left(\omega-U\right)}\right)
+  	\end{bmatrix}
+  		\cdot
+  	\begin{bmatrix}
+  		\partial_{T}u_{0}+w_{0}\partial_{Z}U+\frac{i}{\mathrm{Re}}\left(u_{0}\partial_{Z}m+2m\partial_{Z}u_{0} \right)\\
+  		\partial_{T}w_{0}+\partial_{Z}P_{0}+\frac{i}{\mathrm{Re}}\left(w_{0}\partial_{Z}m+2m\partial_{Z}w_{0} \right)\\
+  		\partial_{T}b_{0}\\
+  		\partial_{Z}w_{0}
+  	\end{bmatrix}\\
+  	=0\\
+  	\implies \mathcal{F}\left[U,\phi_{0} \right]=0\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
+  \end{align*}
+  where $\mathcal{F}$ is differential operator (linear in $\phi_{0}$).
+\end{frame}
+
+\begin{frame}[fragile]{Inviscid limit}
+  \tikzstyle{na} = [baseline=-.5ex]
+  For $\mathrm{Re}=\infty$, the last equation can be simplified into the \textbf{wave activity equation} :
+  \begin{equation*}
+  	\partial_{T}A+\partial_{Z}\left(A w_{g}\right)=0
+  \end{equation*}
+  with $A=E/\left(\omega-U\right)$ and $E=\frac{1}{4}\left(\left\lvert u_{0}\right\rvert^{2}+\left\lvert w_{0}\right\rvert^{2}+\mathrm{Fr}^{2}\left\lvert b_{0}\right\rvert^{2}\right)$. \\
+  Also $\overline{u_{0}w_{0}}=Akw_{g}$ such that at leading order :
+  \begin{equation*}
+  	\partial_{z}\overline{u_{0}w_{0}}=-\partial_{t}\left(kA\right)
+  \end{equation*}
+  Injecting this result into the mean\--flow evolution equation leads to 
+  \begin{equation*}
+  	\partial_{t}\left(U-kA\right)=0
+  \end{equation*}
+  This result is known as the \textbf{non-acceleration theorem}.
+\end{frame}
+
+\section{Boundary conditions and full computation of the wave field}
+
+\begin{frame}{Boundary condition : transverse oscillation}
+	Let us consider a horizontally set-up generator. The fluid is viscous wih a \textbf{no\--slip} boundary condition :
+	\begin{equation*}
+		\mathbf{u}\left(x,z=h_{b}\left(x,t\right),t\right)=\partial_{t}h_{b}\left(x,t\right)\mathbf{e}_{z}
+	\end{equation*}
+	If we now suppose that $\left\lvert\left\lvert h_{b}\right\rvert\right\rvert\ll1$, we perform the wave\--decomposition and linearize this boundary condition to get :
+	\begin{equation*}
+		\begin{cases}
+			\overline{u}\left(z=0,t\right)&=0\\
+			u'\left(x,z=0,t\right)&=0\\
+			w'\left(x,z=0,t\right)&=\partial_{t}h_{b}\left(x,t\right)
+		\end{cases}
+	\end{equation*}
+\end{frame}
+
+\begin{frame}{Boundary condition : Progressive wave}
+	Here we consider $h_{b}\left(x,t\right)=\epsilon\mathcal{R}\mathrm{e}\left[e^{i\left(t-x\right)}\right]$ corresponding to $\left(\omega,k\right)=\left(1,1\right)$. Considering waves propagating upwardly, the we retain the solution for $m$ with a negative imaginary part only. We first ignore the mean\--flow. 
+	\begin{equation*}
+		\begin{cases}
+			\tilde{w}'\left(z\right)&=a_{w}e^{-im_{w}z}+a_{bl}e^{-im_{bl}z}\\
+			\partial_{z}\tilde{w}'\left(z=0\right)&=0\\
+			\tilde{w}'\left(z=0\right)&=i\epsilon
+		\end{cases}
+		\implies 
+		\begin{cases}
+		a_{w}&=i\epsilon\frac{m_{bl}}{m_{bl}-m_{w}}\\
+		a_{bl}&=i\epsilon\frac{m_{w}}{m_{w}-m_{bl}}\\
+		\end{cases}
+	\end{equation*}
 \end{frame}
 
 {
