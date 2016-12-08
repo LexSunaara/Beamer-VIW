@@ -417,7 +417,7 @@
   This result is known as the \textbf{non-acceleration theorem}.
 \end{frame}
 
-\section{Boundary conditions and full computation of the wave field}
+\section{Boundary conditions: computation of the full wave field}
 
 \begin{frame}{Boundary condition : transverse oscillation}
 	Let us consider a horizontally set-up generator. The fluid is viscous wih a \textbf{no\--slip} boundary condition :
@@ -432,291 +432,38 @@
 			w'\left(x,z=0,t\right)&=\partial_{t}h_{b}\left(x,t\right)
 		\end{cases}
 	\end{equation*}
+	\textbf{Important consequence :}$\intop_{0}^{\infty}\partial_{z}\overline{u'w'}\,\mathrm{d}z=0$.
 \end{frame}
 
 \begin{frame}{Boundary condition : Progressive wave}
 	Here we consider $h_{b}\left(x,t\right)=\epsilon\mathcal{R}\mathrm{e}\left[e^{i\left(t-x\right)}\right]$ corresponding to $\left(\omega,k\right)=\left(1,1\right)$. Considering waves propagating upwardly, the we retain the solution for $m$ with a negative imaginary part only. We first ignore the mean\--flow. 
-	\begin{equation*}
-		\begin{cases}
-			\tilde{w}'\left(z\right)&=a_{w}e^{-im_{w}z}+a_{bl}e^{-im_{bl}z}\\
+	\begin{align*}
+		&\begin{cases}
+			\tilde{w}'\left(z\right)&=a_{w}\left(Z\right)e^{-i\intop_{0}^{z}m_{w}\,\mathrm{d}z}+a_{bl}\left(Z\right)e^{-i\intop_{0}^{z}m_{bl},\mathrm{d}z}\\
 			\partial_{z}\tilde{w}'\left(z=0\right)&=0\\
 			\tilde{w}'\left(z=0\right)&=i\epsilon
-		\end{cases}
-		\implies 
+		\end{cases}\\
+		\implies& 
 		\begin{cases}
-		a_{w}&=i\epsilon\frac{m_{bl}}{m_{bl}-m_{w}}\\
-		a_{bl}&=i\epsilon\frac{m_{w}}{m_{w}-m_{bl}}\\
+		a_{w}\left(0\right)&=i\epsilon\frac{m_{bl}\left(0\right)}{m_{bl}\left(0\right)-m_{w}\left(0\right)}\\
+		a_{bl}\left(0\right)&=i\epsilon\frac{m_{w}\left(0\right)}{m_{w}\left(0\right)-m_{bl}\left(0\right)}\\
 		\end{cases}
-	\end{equation*}
+	\end{align*}
 \end{frame}
 
-{
-    \metroset{titleformat frame=smallcaps}
-\begin{frame}{Small caps}
-	This frame uses the \texttt{smallcaps} titleformat.
+\section{Computation of Reynold stress in large Reynold number limit}
 
-	\begin{alertblock}{Potential Problems}
-		Be aware, that not every font supports small caps. If for example you typeset your presentation with pdfTeX and the Computer Modern Sans Serif font, every text in smallcaps will be typeset with the Computer Modern Serif font instead.
-	\end{alertblock}
-\end{frame}
-}
-
-{
-\metroset{titleformat frame=allsmallcaps}
-\begin{frame}{All small caps}
-	This frame uses the \texttt{allsmallcaps} titleformat.
-
-	\begin{alertblock}{Potential problems}
-		As this titleformat also uses smallcaps you face the same problems as with the \texttt{smallcaps} titleformat. Additionally this format can cause some other problems. Please refer to the documentation if you consider using it.
-
-		As a rule of thumb: Just use it for plaintext-only titles.
-	\end{alertblock}
-\end{frame}
-}
-
-{
-\metroset{titleformat frame=allcaps}
-\begin{frame}{All caps}
-	This frame uses the \texttt{allcaps} titleformat.
-
-	\begin{alertblock}{Potential Problems}
-		This titleformat is not as problematic as the \texttt{allsmallcaps} format, but basically suffers from the same deficiencies. So please have a look at the documentation if you want to use it.
-	\end{alertblock}
-\end{frame}
-}
-
-\section{Elements}
-
-\begin{frame}[fragile]{Typography}
-      \begin{verbatim}The theme provides sensible defaults to
-\emph{emphasize} text, \alert{accent} parts
-or show \textbf{bold} results.\end{verbatim}
-
-  \begin{center}becomes\end{center}
-
-  The theme provides sensible defaults to \emph{emphasize} text,
-  \alert{accent} parts or show \textbf{bold} results.
-\end{frame}
-
-\begin{frame}{Font feature test}
-  \begin{itemize}
-    \item Regular
-    \item \textit{Italic}
-    \item \textsc{SmallCaps}
-    \item \textbf{Bold}
-    \item \textbf{\textit{Bold Italic}}
-    \item \textbf{\textsc{Bold SmallCaps}}
-    \item \texttt{Monospace}
-    \item \texttt{\textit{Monospace Italic}}
-    \item \texttt{\textbf{Monospace Bold}}
-    \item \texttt{\textbf{\textit{Monospace Bold Italic}}}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Lists}
-  \begin{columns}[T,onlytextwidth]
-    \column{0.33\textwidth}
-      Items
-      \begin{itemize}
-        \item Milk \item Eggs \item Potatos
-      \end{itemize}
-
-    \column{0.33\textwidth}
-      Enumerations
-      \begin{enumerate}
-        \item First, \item Second and \item Last.
-      \end{enumerate}
-
-    \column{0.33\textwidth}
-      Descriptions
-      \begin{description}
-        \item[PowerPoint] Meeh. \item[Beamer] Yeeeha.
-      \end{description}
-  \end{columns}
-\end{frame}
-\begin{frame}{Animation}
-  \begin{itemize}[<+- | alert@+>]
-    \item \alert<4>{This is\only<4>{ really} important}
-    \item Now this
-    \item And now this
-  \end{itemize}
-\end{frame}
-\begin{frame}{Figures}
-  \begin{figure}
-    \newcounter{density}
-    \setcounter{density}{20}
-    \begin{tikzpicture}
-      \def\couleur{alerted text.fg}
-      \path[coordinate] (0,0)  coordinate(A)
-                  ++( 90:5cm) coordinate(B)
-                  ++(0:5cm) coordinate(C)
-                  ++(-90:5cm) coordinate(D);
-      \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) --(D) -- cycle;
-      \foreach \x in {1,...,40}{%
-          \pgfmathsetcounter{density}{\thedensity+20}
-          \setcounter{density}{\thedensity}
-          \path[coordinate] coordinate(X) at (A){};
-          \path[coordinate] (A) -- (B) coordinate[pos=.05](A)
-                              -- (C) coordinate[pos=.10](B)
-                              -- (D) coordinate[pos=.05](C)
-                              -- (X) coordinate[pos=.10](D);
-          \draw[fill=\couleur!\thedensity] (A)--(B)--(C)-- (D) -- cycle;
-      }
-    \end{tikzpicture}
-    \caption{Rotated square from
-    \href{http://www.texample.net/tikz/examples/rotated-polygons/}{texample.net}.
-    }
-  \end{figure}
-\end{frame}
-\begin{frame}{Tables}
-  \begin{table}
-    \caption{Largest cities in the world (source: Wikipedia)}
-    \begin{tabular}{lr}
-      \toprule
-      City & Population\\
-      \midrule
-      Mexico City & 20,116,842\\
-      Shanghai & 19,210,000\\
-      Peking & 15,796,450\\
-      Istanbul & 14,160,467\\
-      \bottomrule
-    \end{tabular}
-  \end{table}
-\end{frame}
-\begin{frame}{Blocks}
-  Three different block environments are pre-defined and may be styled with an
-  optional background color.
-
-  \begin{columns}[T,onlytextwidth]
-    \column{0.5\textwidth}
-      \begin{block}{Default}
-        Block content.
-      \end{block}
-
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
-
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
-
-    \column{0.5\textwidth}
-
-      \metroset{block=fill}
-
-      \begin{block}{Default}
-        Block content.
-      \end{block}
-
-      \begin{alertblock}{Alert}
-        Block content.
-      \end{alertblock}
-
-      \begin{exampleblock}{Example}
-        Block content.
-      \end{exampleblock}
-
-  \end{columns}
-\end{frame}
-\begin{frame}{Math}
-  \begin{equation*}
-    e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
-  \end{equation*}
-\end{frame}
-\begin{frame}{Line plots}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mlineplot,
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-        \addplot {sin(deg(x))};
-        \addplot+[samples=100] {sin(deg(2*x))};
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-\begin{frame}{Bar charts}
-  \begin{figure}
-    \begin{tikzpicture}
-      \begin{axis}[
-        mbarplot,
-        xlabel={Foo},
-        ylabel={Bar},
-        width=0.9\textwidth,
-        height=6cm,
-      ]
-
-      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
-      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
-      \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
-
-      \legend{lorem, ipsum, dolor}
-
-      \end{axis}
-    \end{tikzpicture}
-  \end{figure}
-\end{frame}
-\begin{frame}{Quotes}
-  \begin{quote}
-    Veni, Vidi, Vici
-  \end{quote}
-\end{frame}
-
-{%
-\setbeamertemplate{frame footer}{My custom footer}
-\begin{frame}[fragile]{Frame footer}
-    \themename defines a custom beamer template to add a text to the footer. It can be set via
-    \begin{verbatim}\setbeamertemplate{frame footer}{My custom footer}\end{verbatim}
-\end{frame}
-}
-
-\begin{frame}{References}
-  Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
-\end{frame}
-
-\section{Conclusion}
-
-\begin{frame}{Summary}
-
-  Get the source of this theme and the demo presentation from
-
-  \begin{center}\url{github.com/matze/mtheme}\end{center}
-
-  The theme \emph{itself} is licensed under a
-  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
-  Attribution-ShareAlike 4.0 International License}.
-
-  \begin{center}\ccbysa\end{center}
-
-\end{frame}
-
-\begin{frame}[standout]
-  Questions?
-\end{frame}
-
-\appendix
-
-\begin{frame}[fragile]{Backup slides}
-  Sometimes, it is useful to add slides at the end of your presentation to
-  refer to during audience questions.
-
-  The best way to do this is to include the \verb|appendixnumberbeamer|
-  package in your preamble and call \verb|\appendix| before your backup slides.
-
-  \themename will automatically turn off slide numbering and progress bars for
-  slides in the appendix.
-\end{frame}
-
-\begin{frame}[allowframebreaks]{References}
-
-  \bibliography{demo}
-  \bibliographystyle{abbrv}
-
+\begin{frame}{General expression}
+	For a wave field of the form $\tilde{w}\left(z\right)=a_{w}e^{-i\int m_{w}}+a_{bl}e^{-i\int m_{bl}}$, we have :
+	\begin{align*}
+		\overline{u'w'}=-\frac{1}{2}\left(\NodeFill{red}{}{$\left\lvert a_{w} \right\rvert^{2}m'_{w}e^{2\int m''_{w}}$}+ \NodeFill{orange}{}{$\left\lvert a_{bl} \right\rvert^{2}m'_{bl}e^{2\int m''_{bl}}$}\right.\;\;\,\\
+		+\NodeFill{orange}{}{$\mathcal{R}\mathrm{e}\left[a_{w}^{*}a_{bl}\left(m_{bl}+m_{w}^{*} \right)  \right]\mathcal{R}\mathrm{e}\left[e^{i\int\left(m_{w}^{*}-m_{bl} \right)} \right]$}\;\;\,\\
+		\left.+\NodeFill{orange}{}{$\mathcal{I}\mathrm{m}\left[ a_{w}^{*}a_{bl}\left(m_{bl}+m_{w}^{*}\right) \right]\mathcal{I}\mathrm{m}\left[e^{i\int\left(m_{w}^{*}-m_{bl} \right)} \right]$}  \right)
+	\end{align*}
+	\begin{itemize}
+		\item \NodeFill{red}{}{Bulk streaming}
+		\item \NodeFill{orange}{}{Boundary streaming}
+	\end{itemize}
 \end{frame}
 
 \end{document}
