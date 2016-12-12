@@ -20,7 +20,7 @@
 
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
-\title{Viscous internal waves and streaming}
+\title{2D Viscous internal waves and streaming}
 \subtitle{}
 % \date{\today}
 \date{}
@@ -61,11 +61,11 @@
   \begin{itemize}
     \item \textbf{Momentum equation:}
       \begin{equation*}
-        \partial_{t}\mathbf{u}+\left(\mathbf{u}\cdot\boldsymbol{\nabla}\right)\mathbf{u} = -\boldsymbol{\nabla}P+b\mathbf{e}_{z}+\nu\Delta\mathbf{u}  
+        \partial_{t}\mathbf{u}+\left(\mathbf{u}\cdot\boldsymbol{\nabla}\right)\mathbf{u} = -\boldsymbol{\nabla}P+S\mathbf{e}_{z}+\nu\Delta\mathbf{u}  
       \end{equation*}
     \item \textbf{Buoyancy advection equation}
       \begin{equation*}
-        \partial_{t}b+\mathbf{u}\cdot\boldsymbol{\nabla}b+N^{2}w =0 
+        \partial_{t}S+\mathbf{u}\cdot\boldsymbol{\nabla}S =0 
       \end{equation*}
     \item \textbf{Incompressible flow} 
       \begin{equation*}
@@ -76,15 +76,15 @@
 
 \begin{frame}[fragile]{2D Boussinesq model : Equations}
   \tikzstyle{na} = [baseline=-.5ex]
-  \textbf{Velocity field} : \NodeFill{blue}{}{$\mathbf{u}$}$=\left(u,\NodeFill{thickblue}{}{$w$}\right)$
+  \textbf{Velocity field} : \NodeFill{blue}{}{$\mathbf{u}$}$=\left(u,w\right)$
   \begin{itemize}
     \item \textbf{Momentum equation:}
       \begin{equation*}
-        \partial_{t}\NodeFill{blue}{}{$\mathbf{u}$}+\left(\NodeFill{blue}{}{$\mathbf{u}$}\cdot\boldsymbol{\nabla}\right)\NodeFill{blue}{}{$\mathbf{u}$} = -\boldsymbol{\nabla}P+b\mathbf{e}_{z}+\nu\Delta\NodeFill{blue}{}{$\mathbf{u}$}  
+        \partial_{t}\NodeFill{blue}{}{$\mathbf{u}$}+\left(\NodeFill{blue}{}{$\mathbf{u}$}\cdot\boldsymbol{\nabla}\right)\NodeFill{blue}{}{$\mathbf{u}$} = -\boldsymbol{\nabla}P+S\mathbf{e}_{z}+\nu\Delta\NodeFill{blue}{}{$\mathbf{u}$}  
       \end{equation*}
     \item \textbf{Buoyancy advection equation}
       \begin{equation*}
-        \partial_{t}b+\NodeFill{blue}{}{$\mathbf{u}$}\cdot\boldsymbol{\nabla}b+N^{2}\NodeFill{thickblue}{}{$w$} =0 
+        \partial_{t}S+\NodeFill{blue}{}{$\mathbf{u}$}\cdot\boldsymbol{\nabla}S =0 
       \end{equation*}
     \item \textbf{Incompressible flow} 
       \begin{equation*}
@@ -99,11 +99,11 @@
   \begin{itemize}
     \item \textbf{Momentum equation:}
       \begin{equation*}
-        \partial_{t}\mathbf{u}+\left(\mathbf{u}\cdot\NodeFill{green}{}{$\boldsymbol{\nabla}$}\right)\mathbf{u} = -\NodeFill{green}{}{$\boldsymbol{\nabla}$}P+b\mathbf{e}_{z}+\nu\NodeFill{thickgreen}{}{$\Delta$}\mathbf{u}  
+        \partial_{t}\mathbf{u}+\left(\mathbf{u}\cdot\NodeFill{green}{}{$\boldsymbol{\nabla}$}\right)\mathbf{u} = -\NodeFill{green}{}{$\boldsymbol{\nabla}$}P+S\mathbf{e}_{z}+\nu\NodeFill{thickgreen}{}{$\Delta$}\mathbf{u}  
       \end{equation*}
     \item \textbf{Buoyancy advection equation}
       \begin{equation*}
-        \partial_{t}b+\mathbf{u}\cdot\NodeFill{green}{}{$\boldsymbol{\nabla}$}b+N^{2}w =0 
+        \partial_{t}S+\mathbf{u}\cdot\NodeFill{green}{}{$\boldsymbol{\nabla}$}S =0 
       \end{equation*}
     \item \textbf{Incompressible flow} 
       \begin{equation*}
@@ -114,15 +114,15 @@
 
 \begin{frame}[fragile]{2D Boussinesq model : Equations}
   \tikzstyle{na} = [baseline=-.5ex]
-  \textbf{Pressure field} \NodeFill{lightorange}{}{$P$} and the \textbf{buoyancy field} \NodeFill{red}{}{$b$}$=-g\frac{\rho-\rho_{0}}{\rho_{0}}-$\NodeFill{lightred}{}{$N^{2}$}$z$ where $N$ is the \textbf{Brunt-V\"ais\"al\"a frequency} assumed constant
+  \textbf{Pressure field} \NodeFill{lightorange}{}{$P$} and the \textbf{buoyancy field} \NodeFill{red}{}{$S$}$=-g\frac{\rho-\rho_{0}}{\rho_{0}}$.
   \begin{itemize}
     \item \textbf{Momentum equation:}
       \begin{equation*}
-        \partial_{t}\mathbf{u}+\left(\mathbf{u}\cdot\boldsymbol{\nabla}\right)\mathbf{u} = -\boldsymbol{\nabla}\NodeFill{lightorange}{}{$P$}+\NodeFill{red}{}{$b$}\mathbf{e}_{z}+\nu\Delta\mathbf{u}  
+        \partial_{t}\mathbf{u}+\left(\mathbf{u}\cdot\boldsymbol{\nabla}\right)\mathbf{u} = -\boldsymbol{\nabla}\NodeFill{lightorange}{}{$P$}+\NodeFill{red}{}{$S$}\mathbf{e}_{z}+\nu\Delta\mathbf{u}  
       \end{equation*}
     \item \textbf{Buoyancy advection equation}
       \begin{equation*}
-        \partial_{t}\NodeFill{red}{}{$b$}+\mathbf{u}\cdot\boldsymbol{\nabla}\NodeFill{red}{}{$b$}+\NodeFill{lightred}{}{$N^{2}$}w =0 
+        \partial_{t}\NodeFill{red}{}{$S$}+\mathbf{u}\cdot\boldsymbol{\nabla}\NodeFill{red}{}{$S$}=0 
       \end{equation*}
     \item \textbf{Incompressible flow} 
       \begin{equation*}
@@ -131,9 +131,62 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Casimirs, potential energy and background stratification}
+	\begin{itemize}
+		\item The buoyancy advection equation implies the conservation of Casimirs : 
+		\begin{equation*}
+			\mathcal{C}_{f}\left[S\right]=\iint S\left(x,z,t\right)\mathrm{d}x\mathrm{d}z
+		\end{equation*} where $f$ is any function.
+		\item $\implies$ The buyancy field evolves by rearanging itself.
+		\item The standard potential energy is defined by : 
+		\begin{equation*}
+			E_{p}\left[S\right]=-\iint S\left(x,z,t\right)z\;\;\mathrm{d}x\mathrm{d}z
+		\end{equation*}
+		\item The \NodeFill{yellow}{}{background stratification} is defined by : 
+		\begin{equation*}
+			E_{p}\left[\NodeFill{yellow}{}{$b_{\mathrm{bg}}$}\right]=\min_{S}\left\{E_p\left[S\right]\left\lvert \mathcal{C}_{f}\left[S\right]=C_{f}\;\;\forall f \right.\right\}
+		\end{equation*}
+		such that $\NodeFill{yellow}{}{$b_{\mathrm{bg}}\left(x,z,t\right)$} = \intop^{z}\;\NodeFill{red}{}{$N^{2}\left(z'\right)$}\;\mathrm{d}z' $ where \NodeFill{red}{}{$N$} is the local \NodeFill{red}{}{Brunt\--V\"ais\"al\"a frequency}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Buoyancy and pressure disturbances}
+	\begin{itemize}
+		\item We define the buyancy disturbance fields by $\NodeFill{yellow}{}{$b$}=S-b_{\mathrm{bg}}$  and the pressure disturbance by $\NodeFill{orange}{}{$p$}=P-\intop^{z}\;b_{\mathrm{bg}}\left(z'\right)\;\mathrm{d}z'$
+		\item Injecting this in the equations of motion, one gets :
+		\begin{equation*}
+			\begin{cases}
+				\partial_{t}\mathbf{u}+\left(\mathbf{u}\cdot\boldsymbol{\nabla}\right)\mathbf{u} &= -\boldsymbol{\nabla}\NodeFill{orange}{}{$p$}+\NodeFill{yellow}{}{$b$}\mathbf{e}_{z}+\nu\Delta\mathbf{u}\\
+				\partial_{t}\NodeFill{yellow}{}{$b$}+\mathbf{u}\cdot\boldsymbol{\nabla}\NodeFill{yellow}{}{$b$}+\NodeFill{red}{}{$N^{2}\left(z\right)$}w & = 0\\
+				\boldsymbol{\nabla}\cdot\mathbf{u}& =0
+			\end{cases}
+		\end{equation*}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Potential energy of the buyancy disturbance}
+	\begin{itemize}
+		\item For the standard expression of the potential energy, the fact that $b=0$ is a minimum is not obvious:
+		\begin{equation*}
+			E_{p}\left[S\right]-E_{p}\left[b_{\mathrm{bg}}\right]=\Delta E_{p}\left[b\right]=-\iint b \;\mathrm{d}x\mathrm{z}
+		\end{equation*}
+		\item Let us introduce $f=\left(\intop^{z} b_{\mathrm{bg}}\right)^{-1}$, such that :
+		\begin{align*}
+			\mathcal{C}_{f}\left[b_{\mathrm{bg}}\right]&=\mathcal{C}_{f}\left[b_{\mathrm{bg}}+b\right]\\
+			&=\mathcal{C}_{f}\left[b_{\mathrm{bg}} \right]-\Delta E_{p}\left[b\right]+\sum_{k=2}^{\infty}\iint \frac{f^{\left(k\right)}\left(b_{\mathrm{bg}}\right)}{k!}b^{k}\;\;\mathrm{d}x\mathrm{d}z
+		\end{align*}
+		\item For $\left\lvert b\right\rvert\ll1$ we have 
+		\begin{equation*}
+			\Delta E_{p}\left[b\right]\approx \iint\frac{b^{2}\left(x,z,t\right)}{2N^{2}\left(z\right)}\mathrm{d}x\mathrm{d}z
+		\end{equation*}
+		This relation is exact if $N^{2}=\mathrm{Cte}$.
+	\end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]{2D Boussinesq model : Adimensionalization}
   \tikzstyle{na} = [baseline=-.5ex]
   \begin{itemize}
+  	\item We assume $N^{2}=\mathrm{Cte}$ in the following
     \item $\left(\tilde{x},\tilde{z}\right)=K\left(x,z\right)$ where $K$ is a typical wave number (e.g. the wave number of the generator)
     \item $\tilde{t}=\Omega t$ where $\Omega$ is a typical frequency (e.g. the frequency of the generator)
     \item $\tilde{\mathbf{u}}=\frac{K}{\Omega}\mathbf{u}$
@@ -159,272 +212,318 @@
   \end{equation*}
 \end{frame}
 
-\section{Viscous internal waves}
+\section{Wave and mean\--flow decomposition}
 
-\begin{frame}[fragile]{Linearization}
-  \tikzstyle{na} = [baseline=-.5ex]
-  Let us linearize the equations of motion about the rest state $\mathrm{\mathbf{u}},b,P=0$ :
-  \begin{equation*}
-    \begin{cases}
-    \partial_{t}u +\partial_{x}P-\frac{1}{\mathrm{Re}}\Delta u& = 0\\ 
-    \partial_{t}w +\partial_{z}P-\frac{1}{\mathrm{Fr}^{2}}b-\frac{1}{\mathrm{Re}}\Delta\mathbf{w} & = 0 \\ 
-    \partial_{t}b+w& =0\\ 
-    \boldsymbol{\nabla}\cdot\mathbf{u}& =0
-    \end{cases}
-  \end{equation*}
-\end{frame}
-
-\begin{frame}[fragile]{Dispersion relation}
-  \tikzstyle{na} = [baseline=-.5ex]
-  We look for \textbf{non\--vanishing plane waves solutions} $\begin{bmatrix}u\\w\\b\\P\end{bmatrix}=\begin{bmatrix}\tilde{u}\\\tilde{w}\\\tilde{b}\\\tilde{P}\end{bmatrix}e^{\displaystyle i \left(\omega t-k x- m z\right)}$. \\
-  This leads to the following \textbf{dispersion relation} :
-  \begin{equation*}
-    \omega\left(\omega-i\frac{k^{2}+m^{2}}{\mathrm{Re}}\right)=\frac{1}{\mathrm{Fr^{2}}}\frac{k^2}{k^2+m^2}
-  \end{equation*}
-\end{frame}
-
-\begin{frame}[fragile]{Inviscid limit}
-  \tikzstyle{na} = [baseline=-.5ex]
-  In the inviscid limit (i.e. $\mathrm{Re}=+\infty$), we recover the well known dispersion relation :
-  \begin{equation*}
-    \omega^{2}=\frac{1}{\mathrm{Fr^{2}}}\frac{k^2}{k^2+m^2}=\frac{1}{\mathrm{Fr^{2}}}\sin^{2}\theta
-  \end{equation*}
-
-  With the phase and group velocities 
-  \begin{equation*}
-    \mathbf{c}_{\varphi}=\pm \frac{1}{\mathrm{Fr}\left(k^{2}+m^{2}\right)}\begin{bmatrix}k\\m\end{bmatrix} \qquad,\qquad \mathbf{c}_{g}=\pm \frac{k^{2}}{\mathrm{Fr}\sqrt{k^{2}+m{2}}} \begin{bmatrix} m^{2}\\-m k\end{bmatrix} 
-  \end{equation*}
-  such that $\mathbf{c}_{\varphi}\cdot\mathbf{c}_{g}=0$\\
-  We must have $\left\lvert\omega\right\rvert<\frac{1}{\mathrm{Fr}}$ for propagating waves.
-\end{frame}
-
-\begin{frame}[fragile]{Back to the viscous case : horizontal generator}
-  \tikzstyle{na} = [baseline=-.5ex]
-  Let us consider again the viscous case. We consider the case where $\omega=1$ and $k=1$. (generator set\--up horizontally)
-  \begin{equation*}
-    \mathrm{Fr^{2}}\left(1-i\frac{1+m^{2}}{\mathrm{Re}}\right)\left(1+m^{2}\right)=1
-  \end{equation*}
-  We can already remark a few things
+\begin{frame}[fragile]{Zonally symetric flows}
+  We consider here the simplest case of zonally periodic flows :
   \begin{itemize}
-    \item $4^{\mathrm{th}}$ order complex polynomial equation for $m$ meaning there are 4 different complex solutions
-    \item The symetry $m\to-m$ indicates two important branches
-  \end{itemize}
-  Two branches :
-  \begin{equation*}
-    m^{2}=\frac{\mathrm{Re}}{2i}\left(1\pm\sqrt{1-\frac{4i}{\mathrm{Re}\mathrm{Fr}^{2}}}\right)-1
-  \end{equation*}
-\end{frame}
-
-\begin{frame}[fragile]{Large Reynold number limit}
-  \tikzstyle{na} = [baseline=-.5ex]
-  We now consider large values of the Reynold number (such that $\mathrm{Fr}^2\mathrm{Re}\gg1$). The solution then writes :
-  \begin{align*}
-    m_{w}&=\pm\left(m_{0}+\frac{i}{2\mathrm{Fr^{4}}m_{0}\mathrm{Re}}\right)\\
-    m_{bl}&=\pm \left(1-i\right)\sqrt{\frac{\mathrm{Re}}{2}}
-  \end{align*}
-  where $m_{0}=\sqrt{\frac{1}{\mathrm{Fr}^{2}}-1}$ is the inviscid value for $m$.\\
-  Few remarks :
-  \begin{itemize}
-    \item $m_{w}$ : Propagating branche
-    \item $L_{\mathrm{Re}}=2\mathrm{Fr^{4}}\mathrm{Re}m_{0}$ : penetration length for the wave beam
-    \item $m_{bl}$ : Boundary layer branche
-    \item $\delta_{\mathrm{Re}}=\sqrt{2/\mathrm{Re}}$ : Boundary layer length
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Back to the viscous case : vertical generator}
-  \tikzstyle{na} = [baseline=-.5ex]
-  We consider here the case where $\omega=1$ and $m=1$. (generator set\--up vertically)
-  \begin{equation*}
-    \mathrm{Fr^{2}}\left(1+k^{2}\right)\left(1-i\frac{1+k^{2}}{\mathrm{Re}}\right)-k^{2}=0
-  \end{equation*}
-  Two branches :
-  \begin{equation*}
-    k^{2}=\frac{i\mathrm{Re}}{2k_{0}^{2}}\left(1+\frac{2ik_{0}^{2}}{\mathrm{Re}}-\sqrt{1+4i\frac{\left(1+k_{0}^{2}\right)k_{0}^{2}}{\mathrm{Re}}} \right)
-  \end{equation*}
-  where $k_{0}=\frac{\mathrm{Fr}}{\sqrt{1-\mathrm{Fr}^{2}}}$ is the inviscid value for $k$.
-\end{frame}
-
-\begin{frame}[fragile]{Large Reynold number limit}
-  \tikzstyle{na} = [baseline=-.5ex]
-  We now consider large values of the Reynold number. The solution then writes :
-  \begin{align*}
-    k_{w}&=\pm\left(k_{0}-\frac{ik_{0}\left(1+k_{0}^{2}\right)^{2}}{2\mathrm{Re}}\right)\\
-    m_{bl}&=\pm \left(1+i\right)\sqrt{\frac{\mathrm{Re}}{2k_{0}^{2}}}
-  \end{align*}
-  where $k_{0}=\frac{\mathrm{Fr}}{\sqrt{1-\mathrm{Fr}^{2}}}$ is the inviscid value for $k$.\\
-  Few remarks :
-  \begin{itemize}
-    \item $k_{w}$ : Propagating branche
-    \item $L_{\mathrm{Re}}=\frac{2\mathrm{Re}}{k_{0}\left( 1+k_{0}^{2}\right)^{2}}$ : Penetration length for the wave beam
-    \item $k_{bl}$ : Boundary layer branche
-    \item $\delta_{\mathrm{Re}}=\sqrt{2k^{2}_{0}/\mathrm{Re}}$ : Boundary layer length
-  \end{itemize}
-\end{frame}
-
-\section{Streaming}
-
-\begin{frame}[fragile]{Wave\--mean flow decomposition}
-  \tikzstyle{na} = [baseline=-.5ex]
-  \begin{itemize}
-    \item The averaging operator is defined by $\overline{u}=\frac{1}{\left(2\pi\right)^{2}}\intop_{0}^{2\pi}\intop_{0}^{2\pi}u\,\mathrm{d}x\mathrm{d}t$.
-    \item The wave\--mean decomposition is defined by $\left(u,w,b,P\right)=\left(\overline{u},\overline{w},\overline{b},\overline{P}\right)+\left(u',w',b',P'\right)$
-    \item Taking the mean part of the equations of motion leads to :\begin{equation*}\partial_{t}\overline{u}-\frac{1}{\mathrm{Re}}\Delta\overline{u} =- \partial_{z}\overline{u'w'}\end{equation*} and $\overline{w},\overline{b}=0$.
-    \item Streaming is induced by the waves from the Reynold stress $\partial_{z}\overline{u'w'}$
+    \item The averaging operator is defined by $\overline{u}=\frac{1}{2\pi}\intop_{0}^{2\pi}u\,\mathrm{d}x$.
+    \item The wave and mean\--flow decomposition is defined by $\left(u,w,b,P\right)=\left(\overline{u},\overline{w},\overline{b},\overline{P}\right)+\left(u',w',b',P'\right)$
+    \item Taking the mean part of the equations of motion leads to the \textbf{mean\--flow equations} :
+    \begin{equation*}
+    	\begin{cases}
+    	\partial_{t}\overline{u}-\frac{1}{\mathrm{Re}}\partial_{zz}\overline{u} &=- \partial_{z}\overline{u'w'}\\
+    	\overline{w}&=0\\
+    	\overline{P}&=\overline{w'^{2}}\\
+    	\partial_{t}\overline{b}&=-\partial_{z}\overline{b'w'}
+    	\end{cases}
+    \end{equation*}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Waves equations}
   \tikzstyle{na} = [baseline=-.5ex]
-  \begin{equation*}
-    \!\!\!\!\!\!\!\!\!\!\!\!\!\!
-    \begin{cases}
-      \partial_{t}u'+\overline{u}\partial{x}u'+w'\partial_{z}\overline{u}+\NodeFill{red}{}{$u'\partial_{x}u'+w'\partial_{z}u'-\partial_{z}\overline{u'w'} $}& = -\partial_{x}P'+\frac{1}{\mathrm{Re}}\Delta u'\\
-      \partial_{t}w'+\overline{u}\partial{x}w'+\NodeFill{red}{}{$u'\partial_{x}w'+w'\partial_{z}w'-\partial_{z}\overline{w'^{2}}$}&=-\partial_{z}P'+\frac{1}{\mathrm{Fr}^{2}}b'+\frac{1}{\mathrm{Re}}\Delta w'\\
-      \partial_{t}b'+\overline{u}\partial_{x}b'+\NodeFill{red}{}{$u'\partial_{x}b'+w'\partial_{z}b'$}+w'&=0\\
-      \partial_{x}u'+\partial_{z}w'&=0
-    \end{cases}
-  \end{equation*}\\
-  \NodeFill{red}{}{Non\--linear terms} responsible of the PSI.
+  \begin{itemize}
+  	\item Substracting the mean flow equations to the equations of motions leads to the \textbf{wave equations} :
+  	\begin{equation*}
+    	\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!
+    	\begin{cases}
+    		\partial_{t}u'+\overline{u}\partial_{x}u'+w'\partial_{z}\overline{u}+\NodeFill{red}{}{$u'\partial_{x}u'+w'\partial_{z}u'-\partial_{z}\overline{u'w'} $} + \partial_{x}P'-\frac{1}{\mathrm{Re}}\Delta u'&=0\\
+     		\partial_{t}w'+\overline{u}\partial_{x}w'+\NodeFill{red}{}{$u'\partial_{x}w'+w'\partial_{z}w'-\partial_{z}\overline{w'^{2}}$}+\partial_{z}P'-\frac{1}{\mathrm{Fr}^{2}}b'-\frac{1}{\mathrm{Re}}\Delta w'&=0\\
+     		\partial_{t}b'+\overline{u}\partial_{x}b'+\NodeFill{red}{}{$u'\partial_{x}b'+w'\partial_{z}b'-\partial_{z}\overline{b'w'}$}+\underbrace{\left(1+\partial_{z}\overline{b}\right)}_{N^{2}\left(z\right)}w'&=0\\
+    		\partial_{x}u'+\partial_{z}w'&=0
+   		\end{cases}
+  	\end{equation*}
+  	\item \NodeFill{red}{}{Non\--linear terms} leading to PSI.
+  \end{itemize}
 \end{frame}
 
-\section{Waves in shear\--flows : WKB solutions}
+\section{Inviscid internal waves}
 
-\begin{frame}[fragile]{WKB ansatz and linearization}
-  \tikzstyle{na} = [baseline=-.5ex]
-  We introduce a small dimensionles parameter $a\ll1$ and assume that the mean\--flow writes $U=U\left(Z,T\right)$ where $\left(Z,T\right)=a\left(z,t\right)$.\\
-  WKB ansatz :
-  \begin{equation*}
-    \begin{bmatrix}u\\w\\b\\P\end{bmatrix}=\sum_{j=0}^{\infty}a^{j+1}\begin{bmatrix}u_{j}\left(Z,T\right)\\w_{j}\left(Z,T\right)\\b_{j}\left(Z,T\right)\\P_{j}\left(Z,T\right)\end{bmatrix}\exp\left(i\frac{\Phi\left(Z,T\right)}{a}-ix \right)
-  \end{equation*}
-  Injecting this ansatz into the wave equation and collecting the leading order terms in $a$ leads to :
-  \begin{equation*}\!\!\!\!\!
-  	\mathbf{M}\begin{bmatrix}u_{0}\\w_{0}\\b_{0}\\P_{0}\end{bmatrix}+a\left(M\begin{bmatrix}u_{1}\\w_{1}\\b_{1}\\P_{1}\end{bmatrix}+
-  	\begin{bmatrix}
-  	\partial_{T}u_{0}+w_{0}\partial_{Z}U+\frac{i}{\mathrm{Re}}\left(u_{0}\partial_{Z}m+2m\partial_{Z}u_{0} \right)\\
-  	\partial_{T}w_{0}+\partial_{Z}P_{0}+\frac{i}{\mathrm{Re}}\left(w_{0}\partial_{Z}m+2m\partial_{Z}w_{0} \right)\\
-  	\partial_{T}b_{0}\\
-  	\partial_{Z}w_{0}\end{bmatrix} \right) =0
-  \end{equation*}
+\begin{frame}{Linearized}
+	Let us first ignore the non\--linear and viscous terms in the wave equations :
+	\begin{equation*}
+    	\begin{cases}
+    	 	\partial_{t}u'+\overline{u}\partial_{x}u'+w'\partial_{z}\overline{u} + \partial_{x}P'&=0\\
+     	 	\partial_{t}w'+\overline{u}\partial_{x}w'+\partial_{z}P'-\frac{1}{\mathrm{Fr}^{2}}b'&=0\\
+     		\partial_{t}b'+\overline{u}\partial_{x}b'+N^{2}w'&=0\\
+    	 	\partial_{x}u'+\partial_{z}w'&=0
+   		\end{cases}
+  	\end{equation*}
+  	As a direct consequence :
+  	\begin{equation*}
+  		\begin{cases}
+  			\partial_{z}\overline{u'w'}&=\partial_{t}\left(\frac{1}{N^{2}}\overline{b'\left(\partial_{x}w'-\partial_{z}u' \right)}+\frac{1}{N^{4}}\frac{\overline{b'^{2}}}{2}\partial_{zz}\overline{u} \right)\\
+  			\overline{b'w'}&=-\partial_{t}\left(\frac{\overline{b'^{2}}}{2N^{2}}\right)
+  		\end{cases}
+  	\end{equation*}
 \end{frame}
 
-\begin{frame}[fragile]{WKB ansatz and linearization}
-  \tikzstyle{na} = [baseline=-.5ex]
-  \begin{equation*}\!\!\!\!\!\!\!\!\!\!
-  	\mathbf{M}
-  	\begin{bmatrix}
-  		u_{0}\\
-  		w_{0}\\
-  		b_{0}\\
-  		P_{0}
-  	\end{bmatrix}+a\left(M
-  	\begin{bmatrix}
-  		u_{1}\\
-  		w_{1}\\
-  		b_{1}\\
-  		P_{1}
-  	\end{bmatrix}+
-  	\begin{bmatrix}
-  		\partial_{T}u_{0}+w_{0}\partial_{Z}U+\frac{i}{\mathrm{Re}}\left(u_{0}\partial_{Z}m+2m\partial_{Z}u_{0} \right)\\
-  		\partial_{T}w_{0}+\partial_{Z}P_{0}+\frac{i}{\mathrm{Re}}\left(w_{0}\partial_{Z}m+2m\partial_{Z}w_{0} \right)\\
-  		\partial_{T}b_{0}\\
-  		\partial_{Z}w_{0}
-  	\end{bmatrix}
-  	 \right) =0
-  \end{equation*}
-  With : 
-  \begin{align*}
-  	\mathbf{M} &=
-  	\begin{bmatrix}
-  		i\left(\omega-U\right)+\frac{1+m^{2}}{\mathrm{Re}} 	&  0  &  0 & -i  \\
-  		0	& i\left(\omega-U\right)+\frac{1+m^{2}}{\mathrm{Re}}  & -\frac{1}{\mathrm{Fr}^{2}} & -im\\
-  		0   &  1  &  i\left(\omega-U\right) & 0\\
-  		-i  &  -im  &  0  &  0
-  	\end{bmatrix}\\
-  	\omega & = \partial_{T}\Phi \\
-  	m &= -\partial_{Z}\Phi
-  \end{align*}
+\begin{frame}[fragile]{WKB ansatz} 
+  \begin{itemize}
+  	\item We introduce $a\ll1$ and associated slow variables $\left(Z,T,T_{\mathrm{mf}}\right)=\left(az,at,a^{3}t)\right)$ and assume  $\overline{u}=\overline{u}\left(Z,T_{\mathrm{mf}}\right)=O\left(1\right)$.\\
+  	\item WKB ansatz :
+  	\begin{equation*}
+    	\begin{bmatrix}
+    		u\\
+    		w\\
+    		b\mathrm{Fr}/N\\
+    		P
+    	\end{bmatrix}
+    	=a\sum_{j=0}^{\infty}a^{j}
+    	\begin{bmatrix}
+    	u_{j}\left(Z,T\right)\\
+    	w_{j}\left(Z,T\right)\\
+    	b_{j}\left(Z,T\right)\mathrm{Fr}/N\\
+    	P_{j}\left(Z,T\right)
+    	\end{bmatrix}
+    	\exp\left(i\frac{\Phi\left(Z,T\right)}{a}-ikx \right)
+  	\end{equation*}
+  	\item We define $m=-\partial_{Z}\Phi $, $\omega=\partial_{T}\Phi $ and $\hat{\omega}=\omega-k\overline{u}$
+  \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Order zero}
-  \tikzstyle{na} = [baseline=-.5ex]
-  \begin{equation*}\!\!\!\!\!
-  	\mathbf{M}
-  	\begin{bmatrix}
-  		u_{0}\\
-  		w_{0}\\
-  		b_{0}\\
-  		P_{0}
-  	\end{bmatrix}
-  	=0 \implies 
-  	\begin{cases}
-  		\det{\mathbf{M}}&=0\\
+\begin{frame}[fragile]{WKB ansatz}
+	Injecting the WKB ansatz and collecting the first order terms leads to :
+  	\begin{equation*}\!\!\!\!\!\!\!\!\!\!
+  		\mathbf{M}
   		\begin{bmatrix}
   			u_{0}\\
   			w_{0}\\
-  			b_{0}\\
+  			b_{0}\mathrm{Fr}/N\\
   			P_{0}
-  		\end{bmatrix}&
-  		=\phi_{0}\boldsymbol{\mathcal{P}}\\
-  		\boldsymbol{\mathcal{P}}&=
-  		\begin{bmatrix}
-  			U-\omega\\
-  			\frac{\omega-U}{m}\\
-  			\frac{i}{m}\\
-  			-\left(\omega-U\right)^{2}\left(1-i\frac{1+m^{2}}{\mathrm{Re}\left(\omega-U\right)}\right)
   		\end{bmatrix}
-  	\end{cases}
+  		+a\left(\mathbf{M}
+  		\begin{bmatrix}
+  			u_{1}\\
+  			w_{1}\\
+  			b_{1}\mathrm{Fr}/N\\
+  			P_{1}
+  		\end{bmatrix}+
+  		\underbrace{\begin{bmatrix}
+  			\partial_{T}u_{0}+w_{0}\partial_{Z}\overline{u} \\
+  			\partial_{T}w_{0}+\partial_{Z}P_{0}\\
+  			\partial_{T}b_{0}\mathrm{Fr}/N\\
+  			\partial_{Z}w_{0}
+  		\end{bmatrix}}_{\boldsymbol{T}\left[\overline{u},\phi_{0}\right]}
+  	 	\right) =0
+  	\end{equation*}
+  With : 
+  \begin{equation*}
+  	\mathbf{M} =
+  	\begin{bmatrix}
+  		i\hat{\omega} 	&  0  &  0 & -ik  \\
+  		0	& i\hat{\omega}  & -\frac{N}{\mathrm{Fr}} & -im\\
+  		0   &  \frac{N}{\mathrm{Fr}}  &  i\hat{\omega} & 0\\
+  		-ik  &  -im  &  0  &  0
+  	\end{bmatrix}
   \end{equation*}
+\end{frame}
+
+\begin{frame}[fragile]{Order zero}
+  	\begin{equation*}\!\!\!\!\!
+  		\mathbf{M}
+  		\begin{bmatrix}
+  			u_{0}\\
+  			w_{0}\\
+  			b_{0}\mathrm{Fr}/N\\
+  			P_{0}
+  		\end{bmatrix}
+  		=0 \implies 
+  		\begin{cases}
+  			\det{\mathbf{M}}&=0\iff \hat{\omega}^{2}=\frac{N^{2}k^{2}}{\mathrm{Fr}^{2}\left(k^{2}+m^{2}\right)}\\
+  			\begin{bmatrix}
+  				u_{0}\\
+  				w_{0}\\
+  				b_{0}\mathrm{Fr}/N\\
+  				P_{0}
+  			\end{bmatrix}&
+  			=\phi_{0}\boldsymbol{\mathcal{P}}\\
+  			\boldsymbol{\mathcal{P}}&=
+  			\begin{bmatrix}
+  				\hat{\omega}/k\\
+  				-\hat{\omega}/m\\
+  				-iN/m\mathrm{Fr}\\
+  				\hat{\omega}^{2}/k^{2}
+  			\end{bmatrix}
+  		\end{cases}
+  	\end{equation*}
+\end{frame}
+
+\begin{frame}[fragile]{Dispersion relation}
+  	\begin{equation*}
+  		\hat{\omega}^{2}=\frac{N^{2}k^{2}}{\mathrm{Fr}^{2}\left(k^{2}+m^{2}\right)}
+  	\end{equation*}
+  	\begin{itemize}
+  		\item $-N\leq\mathrm{Fr}\hat{\omega}\leq N$
+  		\item Phase and Group velocities : 
+  		\begin{equation*}
+    		\mathbf{c}_{\varphi}=\frac{\hat{\omega}}{\mathbf{k}^{2}}\mathbf{k}
+    		\qquad,\qquad 
+    		\mathbf{c}_{g}=-\frac{\hat{\omega}}{\mathbf{k}^{2}}\frac{m}{k}\mathbf{k}^{\bot}
+  		\end{equation*}
+  		where $\mathbf{k}^{\bot}=\left(-m,k\right)$.
+  		\item $\mathbf{c}_{\varphi}\cdot\mathbf{c}_{g}=0$
+  	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Order one}
-  \tikzstyle{na} = [baseline=-.5ex]
-  \begin{align*}\!\!\!\!\!\!\!\!\!\!
+  We take the scalar product of the order one terms with $\phi_{0}^{*}\boldsymbol{\mathcal{P}}^{\dagger}$ : 
+  \begin{equation*}
+  	\boldsymbol{\mathcal{P}}^{\dagger}\cdot\boldsymbol{\mathcal{T}}\left[\overline{u},\phi_{0} \right]=0
+  \end{equation*}
+  After some algebra, we get the \textbf{wave\--activity equation} :
+  \begin{equation*}
+  	\partial_{t}A+\partial_{z}\left(Aw_{g}\right)=0\;\;,\;\;\text{ with }
+  	\begin{cases}
+  		A&=\frac{E}{\hat{\omega}}\\
+  		w_{g}&=-\frac{\mathrm{Fr}^{2}\hat{\omega}^{3} m}{N^{2}k^{2}}
+  	\end{cases}
+  \end{equation*}
+  where 
+  \begin{equation*}
+  	E=\frac{1}{4}\left(\left\lvert u_{0}\right\rvert^{2}+\left\lvert w_{0}\right\rvert^{2} +\frac{\mathrm{Fr}^{2}}{N^{2}}\left\lvert b_{0}\right\rvert^{2} \right)=\frac{N^{2}\left\lvert \phi_{0}\right\rvert^{2}}{2\mathrm{Fr}^{2}m^{2}}
+  \end{equation*}
+  We can check that at leading order $\overline{u'w'}=\frac{1}{2}\mathcal{R}\mathrm{e}\left[u_{0}w_{0}^{*} \right]= kAw_{g}$ such that $\partial_{z}\overline{u'w'}\approx-\partial_{t}\left(kA\right)$
+\end{frame}
+
+\section{Viscous internal waves}
+
+\begin{frame}{Linearized}
+	We put the viscous operator back into the linearized wave euqations :
+	\begin{equation*}
+    	\begin{cases}
+    	 	\partial_{t}u'+\overline{u}\partial_{x}u'+w'\partial_{z}\overline{u} + \partial_{x}P'-\frac{1}{\mathrm{Re}}\Delta u'&=0\\
+     	 	\partial_{t}w'+\overline{u}\partial_{x}w'+\partial_{z}P'-\frac{1}{\mathrm{Fr}^{2}}b'-\frac{1}{\mathrm{Re}}\Delta w'&=0\\
+     		\partial_{t}b'+\overline{u}\partial_{x}b'+N^{2}w'&=0\\
+    	 	\partial_{x}u'+\partial_{z}w'&=0
+   		\end{cases}
+  	\end{equation*}
+  	We still have:
+  	\begin{equation*}
+  		\overline{b'w'}=-\partial_{t}\left(\frac{\overline{b'^{2}}}{2N^{2}}\right)
+  	\end{equation*}\\
+   	We use the same assumptions and consider the same WKB ansatz in the following.
+\end{frame}
+
+\begin{frame}[fragile]{WKB ansatz}
+	Injecting the WKB ansatz and collecting the first order terms leads to :
+  	\begin{equation*}\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!
+  		\mathbf{M}
+  		\begin{bmatrix}
+  			u_{0}\\
+  			w_{0}\\
+  			b_{0}\mathrm{Fr}/N\\
+  			P_{0}
+  		\end{bmatrix}
+  		+a\left(\mathbf{M}
+  		\begin{bmatrix}
+  			u_{1}\\
+  			w_{1}\\
+  			b_{1}\mathrm{Fr}/N\\
+  			P_{1}
+  		\end{bmatrix}+
+  		\underbrace{\begin{bmatrix}
+  			\partial_{T}u_{0}+w_{0}\partial_{Z}\overline{u}+\frac{i}{\mathrm{Re}}\left(u_{0}\partial_{Z}m+2m\partial_{Z}u_{0} \right)\\
+  			\partial_{T}w_{0}+\partial_{Z}P_{0}+\frac{i}{\mathrm{Re}}\left(w_{0}\partial_{Z}m+2m\partial_{Z}w_{0} \right)\\
+  			\partial_{T}b_{0}\mathrm{Fr}/N\\
+  			\partial_{Z}w_{0}
+  		\end{bmatrix}}_{\boldsymbol{T}\left[\overline{u},\phi_{0}\right]}
+  	 	\right) =0
+  	\end{equation*}
+  With : 
+  \begin{equation*}
+  	\mathbf{M} =
   	\begin{bmatrix}
-  		U-\omega\\
-  		\frac{\omega-U}{m}\\
-  		-\frac{i}{m\mathrm{Fr}^{2}}\\
-  		-\left(\omega-U\right)^{2}\left(1-i\frac{1+m^{2}}{\mathrm{Re}\left(\omega-U\right)}\right)
+  		i\hat{\omega}+\frac{k^{2}+m^{2}}{\mathrm{Re}} 	&  0  &  0 & -ik  \\
+  		0	& i\hat{\omega}+\frac{k^{2}+m^{2}}{\mathrm{Re}}  & -\frac{N}{\mathrm{Fr}} & -im\\
+  		0   &  \frac{N}{\mathrm{Fr}}  &  i\hat{\omega} & 0\\
+  		-ik  &  -im  &  0  &  0
   	\end{bmatrix}
-  		\cdot
-  	\begin{bmatrix}
-  		\partial_{T}u_{0}+w_{0}\partial_{Z}U+\frac{i}{\mathrm{Re}}\left(u_{0}\partial_{Z}m+2m\partial_{Z}u_{0} \right)\\
-  		\partial_{T}w_{0}+\partial_{Z}P_{0}+\frac{i}{\mathrm{Re}}\left(w_{0}\partial_{Z}m+2m\partial_{Z}w_{0} \right)\\
-  		\partial_{T}b_{0}\\
-  		\partial_{Z}w_{0}
-  	\end{bmatrix}\\
-  	=0\\
-  	\implies \mathcal{F}\left[U,\phi_{0} \right]=0\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
-  \end{align*}
-  where $\mathcal{F}$ is differential operator (linear in $\phi_{0}$).
+  \end{equation*}
 \end{frame}
 
-\begin{frame}[fragile]{Inviscid limit}
+\begin{frame}[fragile]{Order zero}
+  	\begin{equation*}\!\!\!\!\!\!\!\!\!\!\!\!\!
+  		\mathbf{M}
+  		\begin{bmatrix}
+  			u_{0}\\
+  			w_{0}\\
+  			b_{0}\mathrm{Fr}/N\\
+  			P_{0}
+  		\end{bmatrix}
+  		=0 \implies 
+  		\begin{cases}
+  			\det{\mathbf{M}}=0&\iff \hat{\omega}\left(\hat{\omega}-i\frac{k^{2}+m^{2}}{\mathrm{Re}}\right)=\frac{N^{2}}{\mathrm{Fr^{2}}}\frac{k^2}{k^2+m^2}\\
+  			\begin{bmatrix}
+  				u_{0}\\
+  				w_{0}\\
+  				b_{0}\mathrm{Fr}/N\\
+  				P_{0}
+  			\end{bmatrix}&
+  			=\phi_{0}\boldsymbol{\mathcal{P}}\\
+  			\boldsymbol{\mathcal{P}}&=
+  			\begin{bmatrix}
+  				\hat{\omega}/k\\
+  				-\hat{\omega}/m\\
+  				-iN/m\mathrm{Fr}\\
+  				\frac{\hat{\omega}^{2}}{k^{2}}\left(1-i\frac{\left(k^{2}+m^{2}\right)}{\mathrm{Re}\hat{\omega}} \right)
+  			\end{bmatrix}
+  		\end{cases}
+  	\end{equation*}
+\end{frame}
+
+\begin{frame}[fragile]{Dispersion relation}
+	$k$ and $\omega$ are fixed by generation process (it has to be zonally symetric for our calculation)
+ 	\begin{equation*}
+    	 \hat{\omega}\left(\hat{\omega}-i\frac{k^{2}+m^{2}}{\mathrm{Re}}\right)=\frac{N^{2}}{\mathrm{Fr^{2}}}\frac{k^2}{k^2+m^2}
+  	\end{equation*}
+  	We can already remark a few things
+  	\begin{itemize}
+    	\item $4^{\mathrm{th}}$ order complex polynomial equation for $m$ meaning there are 4 different complex solutions
+    	\item The symetry $m\to-m$ indicates two important branches
+  	\end{itemize}
+  	Two branches :
+  	\begin{equation*}
+  	  	k^{2}+m^{2}=\frac{\mathrm{Re}\hat{\omega}}{2i}\left(1\pm\sqrt{1-\frac{4ik^{2}N^{2}}{\mathrm{Re}\mathrm{Fr}^{2}\hat{\omega}^{3}}}\right)-1
+  	\end{equation*}
+\end{frame}
+
+\begin{frame}[fragile]{Large Reynold number limit}
   \tikzstyle{na} = [baseline=-.5ex]
-  For $\mathrm{Re}=\infty$, the last equation can be simplified into the \textbf{wave activity equation} :
-  \begin{equation*}
-  	\partial_{T}A+\partial_{Z}\left(A w_{g}\right)=0
-  \end{equation*}
-  with $A=E/\left(\omega-U\right)$ and $E=\frac{1}{4}\left(\left\lvert u_{0}\right\rvert^{2}+\left\lvert w_{0}\right\rvert^{2}+\mathrm{Fr}^{2}\left\lvert b_{0}\right\rvert^{2}\right)$. \\
-  Also $\overline{u_{0}w_{0}}=Akw_{g}$ such that at leading order :
-  \begin{equation*}
-  	\partial_{z}\overline{u_{0}w_{0}}=-\partial_{t}\left(kA\right)
-  \end{equation*}
-  Injecting this result into the mean\--flow evolution equation leads to 
-  \begin{equation*}
-  	\partial_{t}\left(U-kA\right)=0
-  \end{equation*}
-  This result is known as the \textbf{non-acceleration theorem}.
+  We now consider large values of the Reynold number (such that $\mathrm{Fr}^2\mathrm{Re}\left\lvert\hat{\omega}\right\rvert^{3}/4k^{2}N^{2}\gg1$). The solution then writes for upwardly propagating waves :
+  \begin{align*}
+    m_{w}&= -\epsilon m_{0}-\frac{ik^{4}N^{4}}{2\mathrm{Fr^{4}}m_{0}\mathrm{Re}\left\lvert\hat{\omega}\right\rvert^{5}}\\
+    m_{bl}&= \left(\epsilon-i\right)\sqrt{\frac{\mathrm{Re}\left\lvert\hat{\omega}\right\rvert}{2}}
+  \end{align*}
+  where $m_{0}=\sqrt{\frac{N^{2}k^{2}}{\mathrm{Fr}^{2}\hat{\omega}^{2}}-k^{2}}$ is the inviscid value for $m$ and $\epsilon=\mathrm{sign}\left(\hat{\omega}\right)$\\
+  Few remarks :
+  \begin{itemize}
+    \item $m_{w}$ : Propagating branche
+    \item $L_{\mathrm{Re}}=2\mathrm{Fr^{4}}\mathrm{Re}m_{0}\left\lvert\hat{\omega}\right\rvert^{5}/k^{4}N^{4}$ : penetration length for the wave beam
+    \item $m_{bl}$ : Boundary layer branche
+    \item $\delta_{\mathrm{Re}}=\sqrt{2/\mathrm{Re}\left\lvert\hat{\omega}\right\rvert}$ : Boundary layer length
+  \end{itemize}
 \end{frame}
 
-\section{Boundary conditions: computation of the full wave field}
+\section{Boundary conditions}
 
 \begin{frame}{Boundary condition : transverse oscillation}
 	Let us consider a horizontally set-up generator. The fluid is viscous wih a \textbf{no\--slip} boundary condition :
 	\begin{equation*}
 		\mathbf{u}\left(x,z=h_{b}\left(x,t\right),t\right)=\partial_{t}h_{b}\left(x,t\right)\mathbf{e}_{z}
 	\end{equation*}
-	If we now suppose that $\left\lvert\left\lvert h_{b}\right\rvert\right\rvert\ll1$, we perform the wave\--decomposition and linearize this boundary condition to get :
+	If we now su hppose that $\left\lvert\left\lvert_{b}\right\rvert\right\rvert\ll1$, we perform the wave and mean\--flow decomposition and linearize this boundary condition to get :
 	\begin{equation*}
 		\begin{cases}
 			\overline{u}\left(z=0,t\right)&=0\\
@@ -436,29 +535,27 @@
 \end{frame}
 
 \begin{frame}{Boundary condition : Progressive wave}
-	Here we consider $h_{b}\left(x,t\right)=\epsilon\mathcal{R}\mathrm{e}\left[e^{i\left(t-x\right)}\right]$ corresponding to $\left(\omega,k\right)=\left(1,1\right)$. Considering waves propagating upwardly, the we retain the solution for $m$ with a negative imaginary part only. We first ignore the mean\--flow. 
+	Here we consider $h_{b}\left(x,t\right)=a\mathcal{R}\mathrm{e}\left[e^{i\left(t-x\right)}\right]$ corresponding to $\left(\omega,k\right)=\left(1,1\right)$. Considering waves propagating upwardly, using the polarisation :
 	\begin{align*}
 		&\begin{cases}
-			\tilde{w}'\left(z\right)&=a_{w}\left(Z\right)e^{-i\intop_{0}^{z}m_{w}\,\mathrm{d}z}+a_{bl}\left(Z\right)e^{-i\intop_{0}^{z}m_{bl},\mathrm{d}z}\\
-			\partial_{z}\tilde{w}'\left(z=0\right)&=0\\
-			\tilde{w}'\left(z=0\right)&=i\epsilon
+			-\left(\frac{\phi_{0,w}\left(0\right)}{m_{w}\left(0\right)}+\frac{\phi_{0,bl}\left(0\right)}{m_{bl}\left(0\right)}\right)&=ia\\
+			\phi_{0,w}\left(0\right)+\phi_{0,bl}\left(0\right)&=0\\
 		\end{cases}\\
 		\implies& 
 		\begin{cases}
-		a_{w}\left(0\right)&=i\epsilon\frac{m_{bl}\left(0\right)}{m_{bl}\left(0\right)-m_{w}\left(0\right)}\\
-		a_{bl}\left(0\right)&=i\epsilon\frac{m_{w}\left(0\right)}{m_{w}\left(0\right)-m_{bl}\left(0\right)}\\
+		\phi_{0,w}\left(0\right)&=-ia\frac{m_{bl}\left(0\right)m_{w}\left(0\right)}{m_{bl}\left(0\right)-m_{w}\left(0\right)}\\
+		\phi_{0,bl}\left(0\right)&=ia\frac{m_{bl}\left(0\right)m_{w}\left(0\right)}{m_{bl}\left(0\right)-m_{w}\left(0\right)}
 		\end{cases}
 	\end{align*}
 \end{frame}
 
-\section{Computation of Reynold stress in large Reynold number limit}
+\section{Computation of Reynold stress in the large Reynold number limit}
 
 \begin{frame}{General expression}
-	For a wave field of the form $\tilde{w}\left(z\right)=a_{w}e^{-i\int m_{w}}+a_{bl}e^{-i\int m_{bl}}$, we have :
 	\begin{align*}
-		\overline{u'w'}=-\frac{1}{2}\left(\NodeFill{red}{}{$\left\lvert a_{w} \right\rvert^{2}m'_{w}e^{2\int m''_{w}}$}+ \NodeFill{orange}{}{$\left\lvert a_{bl} \right\rvert^{2}m'_{bl}e^{2\int m''_{bl}}$}\right.\;\;\,\\
-		+\NodeFill{orange}{}{$\mathcal{R}\mathrm{e}\left[a_{w}^{*}a_{bl}\left(m_{bl}+m_{w}^{*} \right)  \right]\mathcal{R}\mathrm{e}\left[e^{i\int\left(m_{w}^{*}-m_{bl} \right)} \right]$}\;\;\,\\
-		\left.+\NodeFill{orange}{}{$\mathcal{I}\mathrm{m}\left[ a_{w}^{*}a_{bl}\left(m_{bl}+m_{w}^{*}\right) \right]\mathcal{I}\mathrm{m}\left[e^{i\int\left(m_{w}^{*}-m_{bl} \right)} \right]$}  \right)
+		\overline{u'w'}=-\frac{\hat{\omega}^{2}}{2}\left(\NodeFill{red}{}{$\left\lvert \phi_{0,w} \right\rvert^{2}\frac{m'_{w}}{\left\lvert m_{w}\right\rvert^{2}}e^{2\int m''_{w}}$}+ \NodeFill{orange}{}{$\left\lvert \phi_{0,bl} \right\rvert^{2}\frac{m'_{bl}}{\left\lvert m_{bl}\right\rvert^{2}}e^{2\int m''_{bl}}$}\right.\;\;\,\\
+		+\NodeFill{orange}{}{$\mathcal{R}\mathrm{e}\left[\phi_{0,w}^{*}\phi_{0,bl}\frac{m_{bl}+m_{w}^{*}}{m_{bl}m_{w}}   \right]\mathcal{R}\mathrm{e}\left[e^{i\int\left(m_{w}^{*}-m_{bl} \right)} \right]$}\;\;\,\\
+		\left.+\NodeFill{orange}{}{$\mathcal{I}\mathrm{m}\left[\phi_{0,w}^{*}\phi_{0,bl}\frac{m_{bl}+m_{w}^{*}}{m_{bl}m_{w}}   \right]\mathcal{I}\mathrm{m}\left[e^{i\int\left(m_{w}^{*}-m_{bl} \right)} \right]$}  \right)
 	\end{align*}
 	\begin{itemize}
 		\item \NodeFill{red}{}{Bulk streaming}
@@ -468,8 +565,8 @@
 
 \begin{frame}{Large Reynold limit without mean\--flow}
 	\begin{align*}
-		\overline{u'w'}=-\frac{\epsilon^{2}}{2}\left\{m_{0}\left( \NodeFill{red}{}{$e^{-\frac{z}{\mathrm{Fr}^{4}m_{0}\mathrm{Re}}}$}-e^{-z\sqrt{\frac{\mathrm{Re}}{2}}}\cos{z\sqrt{\frac{\mathrm{Re}}{2}}} \right)\right.\\
-		-\left.\frac{m_{0}^{2}}{\sqrt{\mathrm{2Re}}} \left(e^{-z\sqrt{2\mathrm{Re}}}-e^{-z\sqrt{\frac{\mathrm{Re}}{2}}} \left(\cos{z\sqrt{\frac{\mathrm{Re}}{2}}}+\sin{z\sqrt{\frac{\mathrm{Re}}{2}}} \right) \right)\right\}
+		\overline{u'w'}=\epsilon\frac{\hat{\omega}^{2}a^{2}}{2}\left\{\frac{1}{m_{0}}\left( \NodeFill{red}{}{$e^{-\frac{z}{2\mathrm{Fr^{4}}m_{0}\mathrm{Re}\left\lvert\hat{\omega}\right\rvert^{5}}}$}-e^{-z\sqrt{\frac{\mathrm{Re}\left\lvert\hat{\omega}\right\rvert}{2}}}\cos{z\sqrt{\frac{\mathrm{Re}\left\lvert\hat{\omega}\right\rvert}{2}}} \right)\right.\\
+		-\left.\frac{1}{\sqrt{\mathrm{2Re}\left\lvert\hat{\omega}\right\rvert}} \left(e^{-z\sqrt{2\mathrm{Re}\left\lvert\hat{\omega}\right\rvert}}-e^{-z\sqrt{\frac{\mathrm{Re}\left\lvert\hat{\omega}\right\rvert}{2}}} \left(\cos{z\sqrt{\frac{\mathrm{Re}\left\lvert\hat{\omega}\right\rvert}{2}}}+\sin{z\sqrt{\frac{\mathrm{Re}}{2}}} \right) \right)\right\}
 	\end{align*}
 	\begin{itemize}
 		\item \NodeFill{red}{}{Bulk streaming}
@@ -479,11 +576,16 @@
 
 \begin{frame}{Large Reynold limit \textcolor{orange}{with} mean\--flow for the bulk term}
 	\begin{equation*}
-		\overline{u'w'}=-\frac{\epsilon^{2} m_{0} \left(\overline{u}\right)}{2\left(1-\overline{u}\right)^{2} } e^{-\int\frac{\mathrm{d}z}{\mathrm{Fr}^{4}\left(1-\overline{u}\right)^{5} m_{0}\left(\overline{u}\right)\mathrm{Re}}}
-	\end{equation*}
-	\begin{equation*}
-		\partial_{z}\overline{u'w'}=\frac{\epsilon^{2}}{2\left(1-\overline{u}\right)^{7}\mathrm{Fr}^{4}\mathrm{Re} } e^{-\int\frac{\mathrm{d}z}{\mathrm{Fr}^{4}\left(1-\overline{u}\right)^{5} m_{0}\left(\overline{u}\right)\mathrm{Re}}}
-	\end{equation*}
+		\overline{u'w'}=\epsilon\frac{\hat{\omega}^{2}\left\lvert \phi_{0,w} \right\rvert^{2}}{2m_{0}}e^{-\int \frac{\mathrm{d}z}{2\mathrm{Fr^{4}}m_{0}\mathrm{Re}\left\lvert\hat{\omega}\right\rvert^{5}}}=\epsilon\frac{a^{2}}{2m_{0}\left(0\right)}e^{-\int \frac{\mathrm{d}z}{2\mathrm{Fr^{4}}m_{0}\left(1-\overline{u}\right)\mathrm{Re}\left\lvert1-\overline{u}\right\rvert^{5}}}
+	\end{equation*}	\\
+	where $\epsilon=\mathrm{sign}\left(1-\overline{u}\right)$
+\end{frame}
+
+\begin{frame}{Large Reynold limit \textcolor{orange}{with} mean\--flow for the bulk term : \\ Stading wave forcing}
+	We now consider a standing wave forcing corresponding in the superposition of two waves with equal amplitudes and opposite phase speeds :
+	\begin{equation*}\!\!\!\!\!\!\!\!\!
+		\overline{u'w'}=\frac{a^{2}}{2m_{0}\left(0\right)}\left(\epsilon_{-}e^{-\int \frac{\mathrm{d}z}{2\mathrm{Fr^{4}}m_{0}\left(1-\overline{u}\right)\mathrm{Re}\left\lvert1-\overline{u}\right\rvert^{5}}}-\epsilon_{+}e^{-\int \frac{\mathrm{d}z}{2\mathrm{Fr^{4}}m_{0}\left(1+\overline{u}\right)\mathrm{Re}\left\lvert1+\overline{u}\right\rvert^{5}}} \right)
+	\end{equation*}	with $\epsilon_{\pm}=\mathrm{sign}\left(1\pm\overline{u}+\right)$
 \end{frame}
 
 \end{document}
